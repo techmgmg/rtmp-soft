@@ -1,0 +1,9 @@
+nohup: ignoring input
+[4/29/2025, 10:33:18 AM] [INFO] Node-Media-Server v4.0.14
+[4/29/2025, 10:33:18 AM] [INFO] Homepage: https://github.com/illuspas/Node-Media-Server
+[4/29/2025, 10:33:18 AM] [INFO] License: Apache-2.0
+[4/29/2025, 10:33:18 AM] [INFO] Author: Chen Mingliang
+▶️ NodeMediaServer запущен: RTMP 1935, HTTP-FLV 8000
+[4/29/2025, 10:33:18 AM] [INFO] HTTP server listening on port undefined:8000
+[4/29/2025, 10:33:18 AM] [INFO] Rtmp Server listening on port undefined:1935
+🌐 Web-интерфейс доступен: http://<IP>:3000/ (Basic Auth + IP filter)

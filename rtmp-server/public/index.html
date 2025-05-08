@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Live</title>
+    <script src="https://cdn.jsdelivr.net/npm/flv.js@latest/dist/flv.min.js"></script>
+</head><body style="margin:0;background:#000;color:#fff;text-align:center">
+<h2>Stream</h2>
+<input id="key" value="desktop1" /><button id="go">▶️</button><br>
+<video id="v" controls muted autoplay playsinline
+       style="width:80vw;max-width:800px;background:#000"></video>
+<script>
+    document.getElementById('go').onclick = () => {
+        const key = document.getElementById('key').value.trim();
+        const url = `http://${location.hostname}:8000/live/${key}.flv`;
+        if (!flvjs.isSupported()) return alert('no flv.js');
+        const player = flvjs.createPlayer(
+            {type:'flv',url,isLive:true},
+            {enableFetch:false,enableWorker:false}
+        );
+        // логи
+        player.on(flvjs.Events.ERROR, e=>console.error('❌',e));
+        player.on(flvjs.Events.METADATA_ARRIVED, ()=>console.log('ℹ metadata'));
+        player.on(flvjs.Events.BUFFER_APPENDED, ()=>console.log('✅ appended'));
+        player.attachMediaElement(document.getElementById('v'));
+        player.load(); player.play();
+    };
+</script>
+
+</body></html>
